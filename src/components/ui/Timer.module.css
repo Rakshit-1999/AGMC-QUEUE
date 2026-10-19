@@ -1,0 +1,20 @@
+.timer {
+  display: inline-flex;
+  align-items: baseline;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.elapsed { color: var(--ink); }
+.over { color: var(--clay); }
+
+.expected { color: var(--ink-2); font-weight: var(--fw-regular); white-space: pre; }
+
+.sm .elapsed { font-size: 13px; font-weight: var(--fw-semibold); }
+.sm .expected { font-size: 12px; }
+
+.lg .elapsed { font-size: var(--fs-name-lg); font-weight: var(--fw-bold); line-height: 1.1; }
+.lg .expected { font-size: 13px; }
+
+.xl .elapsed { font-size: var(--fs-timer); font-weight: var(--fw-bold); line-height: 1; }
+.xl .expected { font-size: var(--fs-body); }

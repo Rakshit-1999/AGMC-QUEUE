@@ -1,0 +1,68 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-inner);
+  color: var(--ink-2);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+.trigger:hover,
+.triggerOpen { background: var(--quiet-hover); }
+
+.menu {
+  position: fixed;
+  z-index: var(--z-dropdown);
+  min-width: 200px;
+  padding: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-control);
+  box-shadow: var(--shadow-pop);
+  display: flex;
+  flex-direction: column;
+  animation: menuIn var(--dur-fast) var(--ease-out);
+}
+.up { animation-name: menuInUp; }
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes menuInUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  text-align: left;
+  white-space: nowrap;
+}
+.item:hover,
+.item:focus-visible { background: var(--ground); outline: none; }
+
+.destructive { color: var(--clay); }
+.destructive:hover,
+.destructive:focus-visible { background: var(--clay-bg); }
+
+.disabled { opacity: 0.45; cursor: not-allowed; }
+.disabled:hover { background: transparent; }
+
+.separator {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--border-soft);
+}

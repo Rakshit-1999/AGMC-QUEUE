@@ -1,0 +1,22 @@
+.anchor { display: inline-flex; max-width: 100%; }
+.anchorBlock { display: flex; width: 100%; }
+
+.tooltip {
+  position: fixed;
+  z-index: var(--z-tooltip);
+  max-width: 260px;
+  padding: 5px 8px;
+  border-radius: var(--r-inner);
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+  pointer-events: none;
+  animation: tipIn var(--dur-fast) var(--ease-out);
+}
+
+@keyframes tipIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

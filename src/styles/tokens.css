@@ -1,0 +1,229 @@
+/* AGMC Queue — design tokens. Source of truth: docs/SPEC.md (colours, sizes), docs/DESIGN.md (usage).
+   Light mode only. Do not add a dark theme. */
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* ---------- Colour: brand (SPEC "Design basics") ---------- */
+  --green: #153804;            /* top bar, primary buttons, selected, good states */
+  --deep-green: #0D2402;       /* sign-in hero panel ONLY */
+  --ground: #F5F4EF;           /* page background */
+  --card: #FFFFFF;
+  --border: #ECEAE3;           /* card + table borders */
+
+  /* Ink */
+  --ink: #16150F;              /* main text */
+  --ink-2: #4A4840;            /* secondary text */
+  --ink-3: #75726A;            /* hints/labels — on white only (4.8:1); fails on --ground/tints */
+
+  /* Status */
+  --clay: #8C3A2B;             /* something is wrong */
+  --clay-bg: #F5EAE6;
+  --amber: #8A5A00;            /* watch / calling / break / placeholder */
+  --amber-bg: #FBF1DD;
+  --blue: #1F4E79;             /* waiting tickets */
+  --blue-bg: #E7EEF5;
+
+  /* Charts */
+  --chart-appt: #2F6B1A;       /* appointments; called sooner than told */
+  --chart-walk: #B8862A;       /* walk-ins; called later than told — graphics only, never text */
+
+  /* ---------- Colour: derived tints (not in SPEC palette; supporting only) ---------- */
+  --green-hover: #22490C;      /* primary button hover */
+  --green-press: #0F2E03;      /* primary button active */
+  --green-bg: #E6EFE0;         /* green chip fill */
+  --green-tint: #F1F6EE;       /* quote box, selected advisor row */
+  --green-line: #CFE0C6;       /* border of green-tint boxes */
+  --clay-line: #E8CFC7;        /* border of clay-bg boxes / clay KPI tile */
+  --amber-line: #EBD9B0;       /* banner + placeholder tag border */
+  --amber-tint: #FDF8EC;       /* faint highlight row (moved up / assigned) */
+  --grey-bg: #EFEDE7;          /* grey chip fill, progress track */
+  --grey-line: #D9D6CC;        /* secondary button + pill borders, offline bar segment */
+  --line-input: #8E8A7F;       /* input + switch-off track border (3.4:1 on white, WCAG 1.4.11) */
+  --border-soft: #F1EFE9;      /* table row dividers, chart gridlines */
+  --row-hover: #FAF9F6;        /* table row hover, shaded/faded rows */
+  --overlay: rgba(22, 21, 15, 0.45);
+  --on-green-line: rgba(255, 255, 255, 0.55);  /* nav pill outline on top bar */
+  --on-green-hover: rgba(255, 255, 255, 0.12);
+  --quiet-hover: rgba(22, 21, 15, 0.05);
+  --focus: var(--green);
+  --focus-on-dark: #FFFFFF;
+
+  /* Advisor bar (manager overview) */
+  --bar-free: var(--chart-appt);
+  --bar-busy: var(--ink);
+  --bar-break: var(--chart-walk);
+  --bar-offline: var(--grey-line);
+
+  /* ---------- Type ---------- */
+  --font-sans: 'Pathway Extreme', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-title: 24px;            /* page title, 700 */
+  --fs-section: 17px;          /* section/card/dialog title, 700 */
+  --fs-lead: 15px;             /* big-button label, sign-in description */
+  --fs-body: 14px;
+  --fs-small: 13px;            /* table secondary, controls */
+  --fs-hint: 12px;             /* hints (SPEC range 11.5–12.5) */
+  --fs-hint-sm: 11.5px;        /* chips, KPI labels */
+  --fs-caps: 11px;             /* small-caps labels, table headers (uppercase + tracking) */
+  --fs-tag: 10.5px;            /* PLACEHOLDER / MOCK DATA */
+  --fs-kpi: 26px;              /* KPI tile number */
+  --fs-kpi-unit: 13px;
+  --fs-name-lg: 22px;          /* customer name beside 44px ticket */
+  --fs-timer: 36px;            /* advisor serving timer (smaller than ticket) */
+  --fs-ticket: 44px;           /* advisor desk + ticket issued */
+  --fs-ticket-tv: 64px;        /* TV */
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-body: 1.45;
+  --tracking-caps: 0.06em;
+  --tracking-caps-wide: 0.1em;
+
+  /* ---------- Spacing (4-based) ---------- */
+  --sp-0-5: 2px;
+  --sp-1: 4px;
+  --sp-1-5: 6px;
+  --sp-2: 8px;
+  --sp-2-5: 10px;
+  --sp-3: 12px;
+  --sp-3-5: 14px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  --page-pad-x: 24px;
+  --page-max: 1600px;
+  --gap-grid: 16px;            /* between cards / columns */
+  --gap-tiles: 10px;           /* between KPI tiles */
+
+  /* ---------- Sizes ---------- */
+  --topbar-h: 58px;
+  --control-h: 34px;           /* inputs, md buttons */
+  --control-h-sm: 28px;
+  --control-h-lg: 44px;        /* big buttons */
+  --pill-h: 30px;              /* nav pills, choice pills */
+  --chip-h: 22px;
+  --row-h: 44px;               /* two-line table rows (min) */
+  --row-h-compact: 36px;       /* single-line rows */
+  --thead-h: 32px;
+  --col-checkin: 390px;        /* reception sticky column */
+  --col-myday: 380px;          /* advisor right column */
+  --col-tabs: 220px;           /* settings tab list */
+  --dialog-w: 440px;
+  --dialog-w-wide: 640px;
+
+  /* ---------- Radii ---------- */
+  --r-card: 14px;
+  --r-control: 10px;
+  --r-inner: 8px;              /* segments inside a segmented switch, tooltips */
+  --r-tag: 4px;
+  --r-pill: 999px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-card: 0 1px 2px rgba(22, 21, 15, 0.04), 0 2px 8px rgba(22, 21, 15, 0.04);
+  --shadow-sm: 0 1px 2px rgba(22, 21, 15, 0.08);
+  --shadow-pop: 0 4px 12px rgba(22, 21, 15, 0.10), 0 1px 3px rgba(22, 21, 15, 0.08);
+  --shadow-dialog: 0 16px 48px rgba(22, 21, 15, 0.18), 0 2px 6px rgba(22, 21, 15, 0.08);
+  --shadow-toast: 0 6px 20px rgba(22, 21, 15, 0.22);
+  --ring: 0 0 0 2px var(--card), 0 0 0 4px var(--focus);
+
+  /* ---------- Z-index ---------- */
+  --z-base: 0;
+  --z-sticky: 20;              /* sticky Check in column, settings tab list */
+  --z-topbar: 50;
+  --z-dropdown: 60;            /* row menus, selects, branch picker */
+  --z-overlay: 80;
+  --z-dialog: 90;
+  --z-toast: 100;
+  --z-tooltip: 110;
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --dur-fast: 120ms;           /* hover, press */
+  --dur-base: 200ms;           /* dialog in, toast in, switch */
+  --dur-out: 150ms;            /* dialog/toast out */
+  --dur-slow: 320ms;           /* scroll reveal */
+  --dur-pulse: 1600ms;         /* CALLING small-caps pulse */
+  --dur-tv-pulse: 1200ms;      /* TV new-call pulse, x3 */
+  --toast-ms-ok: 2600;         /* read in JS */
+  --toast-ms-err: 5000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01ms;
+    --dur-base: 0.01ms;
+    --dur-out: 0.01ms;
+    --dur-slow: 0.01ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Base reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg, video, canvas { display: block; max-width: 100%; }
+
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+a { color: inherit; text-decoration: none; }
+table { border-collapse: collapse; border-spacing: 0; width: 100%; }
+th { text-align: left; font-weight: inherit; }
+
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+code, kbd, samp, .mono {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+}
+
+.num { font-variant-numeric: tabular-nums; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+::selection { background: var(--green-bg); color: var(--ink); }

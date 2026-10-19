@@ -1,0 +1,80 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.trigger:disabled { cursor: not-allowed; }
+
+.trigger.sm { height: var(--control-h-sm); font-size: var(--fs-small); }
+
+.value {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.placeholder { color: var(--ink-3); }
+
+.chevron { flex: none; width: 12px; height: 12px; color: var(--ink-2); }
+
+/* Branch picker on the green top bar */
+.onGreen {
+  height: 30px;
+  padding: 0 10px 0 12px;
+  border-radius: var(--r-control);
+  border: 1px solid var(--on-green-line);
+  background: var(--on-green-hover);
+  color: #fff;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+.onGreen:hover { background: rgba(255, 255, 255, 0.2); }
+.onGreen:focus-visible { outline: 2px solid var(--focus-on-dark); outline-offset: 2px; }
+.onGreen .chevron { color: #fff; }
+.onGreen .placeholder { color: rgba(255, 255, 255, 0.8); }
+
+.list {
+  position: fixed;
+  z-index: var(--z-dropdown);
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 4px;
+  margin: 0;
+  list-style: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-control);
+  box-shadow: var(--shadow-pop);
+  animation: listIn var(--dur-fast) var(--ease-out);
+}
+.up { animation-name: listInUp; }
+
+@keyframes listIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes listInUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  color: var(--ink);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+.active { background: var(--ground); }
+.selected { font-weight: var(--fw-semibold); color: var(--green); }
+.disabled { opacity: 0.45; cursor: not-allowed; }

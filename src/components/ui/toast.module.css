@@ -1,0 +1,33 @@
+.viewport {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: var(--z-toast);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  max-width: 520px;
+  padding: 9px 16px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+  box-shadow: var(--shadow-toast);
+  text-align: center;
+}
+
+.error { background: var(--clay); }

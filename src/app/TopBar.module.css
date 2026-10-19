@@ -1,0 +1,83 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-topbar);
+  display: flex;
+  align-items: center;
+  height: var(--topbar-h);
+  padding: 0 20px;
+  background: var(--green);
+  color: #fff;
+  min-width: 1024px;
+  flex: none;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 6px;
+  color: #fff;
+  flex: none;
+}
+
+.divider {
+  width: 1px;
+  height: 22px;
+  margin: 0 12px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.product { font-size: 16px; font-weight: var(--fw-bold); line-height: 1; }
+
+.nav { display: flex; align-items: center; gap: 6px; margin-left: 24px; }
+
+.pill,
+.pillActive {
+  display: inline-flex;
+  align-items: center;
+  height: var(--pill-h);
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--on-green-line);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  color: #fff;
+  background: transparent;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.pill:hover { background: var(--on-green-hover); }
+.pillActive { background: #fff; border-color: #fff; color: var(--green); }
+
+.signOut { height: 28px; padding: 0 12px; }
+
+.picker { margin-left: 16px; display: flex; align-items: center; }
+
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding-left: 16px;
+}
+
+.clock { font-size: 14px; font-weight: var(--fw-semibold); color: #fff; }
+
+.user {
+  max-width: 320px;
+  min-width: 0;
+  font-size: var(--fs-small);
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.userName { font-weight: var(--fw-semibold); }
+.userRole { font-weight: var(--fw-regular); opacity: 0.85; }
+
+@media (max-width: 1099px) {
+  .userRole { display: none; }
+}

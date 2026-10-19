@@ -1,0 +1,42 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: var(--r-pill);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  line-height: 1;
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid transparent;
+}
+
+.md { height: var(--chip-h); padding: 0 8px; font-size: var(--fs-hint-sm); }
+.sm { height: 18px; padding: 0 6px; font-size: var(--fs-caps); }
+
+.grey { color: var(--ink-2); background: var(--grey-bg); }
+.blue { color: var(--blue); background: var(--blue-bg); }
+.amber { color: var(--amber); background: var(--amber-bg); }
+.green { color: var(--green); background: var(--green-bg); }
+.darkGreen { color: #fff; background: var(--green); }
+.clay { color: var(--clay); background: var(--clay-bg); }
+.outline { color: var(--ink-2); background: transparent; border-color: var(--grey-line); }
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+
+.pulse { animation: pulse var(--dur-pulse) var(--ease-in-out) infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse { animation: none; }
+}

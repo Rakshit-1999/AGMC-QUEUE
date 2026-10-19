@@ -1,0 +1,17 @@
+/* Ticket print layout: only the element marked [data-print-ticket] is printed (ARCHITECTURE §7, Reception). */
+@media print {
+  @page { size: 80mm auto; margin: 6mm; }
+
+  body * { visibility: hidden !important; }
+  [data-print-ticket], [data-print-ticket] * { visibility: visible !important; }
+  [data-print-ticket] {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  [data-print-hide] { display: none !important; }
+}

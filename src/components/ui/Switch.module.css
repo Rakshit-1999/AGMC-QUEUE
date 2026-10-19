@@ -1,0 +1,32 @@
+.wrap { display: inline-flex; align-items: center; gap: 8px; }
+
+.track {
+  position: relative;
+  flex: none;
+  width: 32px;
+  height: 18px;
+  border-radius: var(--r-pill);
+  background: var(--card);
+  border: 1px solid var(--line-input);
+  transition: background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+
+.thumb {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--line-input);
+  transition: transform var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out);
+}
+
+.on { background: var(--green); border-color: var(--green); }
+.on .thumb { background: #fff; transform: translateX(14px); }
+
+.label { font-size: 13.5px; color: var(--ink); cursor: pointer; user-select: none; }
+.state { font-size: 12.5px; color: var(--ink-2); }
+
+.disabled { opacity: 0.45; }
+.disabled .label { cursor: not-allowed; }

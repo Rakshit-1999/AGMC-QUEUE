@@ -1,0 +1,95 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  border-radius: var(--r-control);
+  border: 1px solid transparent;
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  line-height: 1;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+  user-select: none;
+}
+
+.sm { height: var(--control-h-sm); padding: 0 10px; font-size: 12.5px; }
+.md { height: var(--control-h); padding: 0 14px; font-size: 13.5px; }
+.lg { height: var(--control-h-lg); padding: 0 20px; font-size: var(--fs-lead); }
+
+.full { width: 100%; }
+
+.label { display: inline-flex; align-items: center; gap: 6px; }
+.icon { display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; }
+
+/* ---- Primary ---- */
+.primary { background: var(--green); color: #fff; }
+.primary.live:hover { background: var(--green-hover); }
+.primary.live:active { background: var(--green-press); }
+.primary:focus-visible { outline-color: var(--green); }
+
+/* ---- Secondary ---- */
+.secondary { background: var(--card); color: var(--ink); border-color: var(--grey-line); }
+.secondary.live:hover { background: var(--ground); }
+.secondary.live:active { background: var(--grey-bg); }
+
+/* ---- Quiet (Back / Cancel) ---- */
+.quiet { background: transparent; color: var(--ink-2); }
+.quiet.live:hover { background: var(--quiet-hover); color: var(--ink); }
+.quiet.live:active { background: var(--grey-bg); }
+
+/* ---- Destructive (clay outlined) ---- */
+.danger { background: var(--card); color: var(--clay); border-color: var(--clay); }
+.danger.live:hover { background: var(--clay-bg); }
+.danger.live:active { background: var(--clay-line); }
+
+/* ---- Link ---- */
+.link {
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--green);
+  font-size: 12.5px;
+  line-height: 1.3;
+}
+.link.live:hover { text-decoration: underline; }
+
+/* ---- Nav pills (top bar) ---- */
+.navPill,
+.navPillActive {
+  height: var(--pill-h);
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-small);
+}
+.navPill { color: #fff; border-color: var(--on-green-line); background: transparent; }
+.navPill.live:hover { background: var(--on-green-hover); }
+.navPillActive { background: #fff; color: var(--green); border-color: #fff; }
+.navPill:focus-visible,
+.navPillActive:focus-visible { outline-color: var(--focus-on-dark); }
+
+/* ---- Disabled / pending ---- */
+.button:disabled,
+.button[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.button[aria-busy='true'] { cursor: progress; opacity: 1; }
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 700ms linear infinite;
+  flex: none;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Pending without an icon: keep the width, hide the label visually, centre the spinner. */
+.pendingBare .label { opacity: 0; }
+.spinnerCentered { position: absolute; left: 50%; top: 50%; margin: -7px 0 0 -7px; }

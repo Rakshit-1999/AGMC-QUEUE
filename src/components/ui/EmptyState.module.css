@@ -1,0 +1,8 @@
+.empty {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.onTint { color: var(--ink-2); }
+.compact { padding: 12px 8px; }

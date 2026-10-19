@@ -1,0 +1,28 @@
+.group { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: var(--pill-h);
+  padding: 0 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--grey-line);
+  background: var(--card);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+.pill:not(:disabled):not(.selected):hover { border-color: var(--ink-3); }
+
+.selected {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  font-weight: var(--fw-semibold);
+}
+
+.pill:disabled { opacity: 0.45; cursor: not-allowed; }

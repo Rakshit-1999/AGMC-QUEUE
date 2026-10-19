@@ -1,0 +1,13 @@
+.track {
+  width: 100%;
+  border-radius: var(--r-pill);
+  background: var(--grey-bg);
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  border-radius: var(--r-pill);
+  background: var(--green);
+  transition: width 300ms linear, background-color var(--dur-fast) var(--ease-out);
+}
+.alert { background: var(--clay); }

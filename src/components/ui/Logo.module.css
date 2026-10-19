@@ -1,0 +1,13 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  user-select: none;
+}
+.fluid { font-size: inherit; height: 1.22em; }
+.green { color: var(--green); }

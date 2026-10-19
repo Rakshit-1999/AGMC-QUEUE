@@ -1,0 +1,66 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--overlay);
+}
+
+.panel {
+  position: relative;
+  z-index: var(--z-dialog);
+  display: flex;
+  flex-direction: column;
+  width: min(var(--dialog-w), calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  padding: 20px;
+  background: var(--card);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-dialog);
+  outline: none;
+}
+.wide { width: min(var(--dialog-w-wide), calc(100vw - 32px)); }
+
+.head { flex: none; }
+
+.title {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.description {
+  margin: 4px 0 16px;
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: var(--lh-body);
+}
+.head:not(:has(.description)) { margin-bottom: 16px; }
+
+.form { display: flex; flex-direction: column; min-height: 0; flex: 1 1 auto; }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  /* Room for focus rings inside the scroll area */
+  margin: -4px;
+  padding: 4px;
+}
+.body:empty { display: none; }
+
+.footer {
+  flex: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}

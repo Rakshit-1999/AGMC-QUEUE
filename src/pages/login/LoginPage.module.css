@@ -1,0 +1,180 @@
+/* Page 1 — Sign in (DESIGN §2.1). ≥768: split 44% / 56%. <768: brand band on top. */
+
+.page {
+  display: grid;
+  grid-template-columns: minmax(420px, 44%) 1fr;
+  min-height: 100vh;
+  background: var(--ground);
+}
+
+/* ---------- Brand panel ---------- */
+.brand {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background: var(--deep-green);
+  color: #fff;
+}
+
+.brandLogo { flex: none; display: flex; font-size: 21px; } /* 26 px logo box */
+
+.brandCopy {
+  margin: auto 0;
+  padding: 24px 0;
+}
+
+.headline {
+  max-width: 440px;
+  font-size: 32px;
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.line {
+  max-width: 440px;
+  margin-top: 12px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: #fff;
+  opacity: 0.82;
+}
+
+.footer {
+  flex: none;
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.6;
+}
+
+/* ---------- Form panel ---------- */
+.formPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  min-width: 0;
+}
+
+.formCol { width: 360px; max-width: 100%; }
+
+.form { display: flex; flex-direction: column; }
+
+.title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.sub {
+  margin: 4px 0 20px;
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.fields { display: flex; flex-direction: column; gap: 12px; }
+
+.error {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--clay);
+}
+
+.submit { margin-top: 16px; }
+
+/* ---------- Demo accounts ---------- */
+.demo {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ink-2 rather than ink-3: ink-3 on --ground is only 4.36:1 (DESIGN §4.1). */
+.demoTitle {
+  font-size: var(--fs-caps);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.demoPassword {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 11.5px;
+  color: var(--ink);
+}
+
+.groupHeading {
+  margin: 10px 0 4px;
+  font-size: var(--fs-hint-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--ink-2);
+}
+
+.demoRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: var(--r-control);
+  text-align: left;
+  transition: background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.demoRow:hover { background: var(--card); box-shadow: var(--shadow-sm); }
+
+.demoWho {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.demoName { font-size: 13.5px; font-weight: var(--fw-bold); color: var(--ink); }
+.demoUser { margin-left: 6px; font-size: 12px; color: var(--ink-2); }
+
+.footerPhone { display: none; }
+
+/* ---------- Short desktop screens: keep the form reachable ---------- */
+@media (min-width: 768px) and (max-height: 760px) {
+  .formPanel { align-items: flex-start; }
+}
+
+/* ---------- Phone: brand band on top ---------- */
+@media (max-width: 767px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .brand {
+    position: static;
+    height: auto;
+    padding: 20px 16px;
+  }
+  .brandLogo { font-size: 15px; } /* 18 px logo box */
+  .brandCopy { margin: 12px 0 0; padding: 0; }
+  .headline { font-size: 20px; }
+  .line,
+  .footer { display: none; }
+
+  .formPanel {
+    display: block;
+    padding: 24px 16px;
+  }
+  .formCol { width: 100%; }
+
+  .footerPhone {
+    display: block;
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--ink-2);
+  }
+}

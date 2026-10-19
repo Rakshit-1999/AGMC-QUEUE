@@ -1,0 +1,26 @@
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--page-pad-x) var(--sp-10);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: var(--gap-grid);
+  align-items: start;
+}
+
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+
+.greenStrip {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: var(--r-control);
+  background: var(--green);
+}
+
+.tableCard { margin-top: var(--gap-grid); }

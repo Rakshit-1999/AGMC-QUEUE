@@ -1,0 +1,18 @@
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: var(--sp-4);
+  border-radius: var(--r-control);
+  border: 1px solid var(--amber-line);
+  background: var(--amber-bg);
+  color: var(--amber);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+.icon { flex: none; margin-top: 2px; }
+
+.body { min-width: 0; }
+.body strong, .body b { font-weight: var(--fw-bold); }
