@@ -1,0 +1,57 @@
+.card { display: flex; flex-direction: column; }
+
+/* Top bar 58 + sticky offset 16 + card header/footer room: the list scrolls inside (DESIGN §2.3). */
+.list {
+  max-height: calc(100vh - var(--topbar-h) - 32px - 60px - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0 calc(-1 * var(--sp-1));
+  padding: 0 var(--sp-1);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: var(--sp-2-5);
+  align-items: center;
+  padding: var(--sp-2) 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.row:last-child { border-bottom: 0; }
+
+.time {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  align-self: start;
+  padding-top: 1px;
+}
+
+.text { min-width: 0; }
+
+.main {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sub {
+  margin-top: 1px;
+  font-size: var(--fs-hint);
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer {
+  margin-top: var(--sp-2-5);
+  padding-top: var(--sp-2-5);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-hint);
+  color: var(--ink-3);
+}

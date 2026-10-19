@@ -1,0 +1,105 @@
+/* Current customer card (DESIGN §2.3). Hierarchy: ticket 44 > timer 36 > name 22 > everything else. */
+.card {
+  padding: var(--sp-5);
+  min-height: 260px;
+}
+
+/* Small caps status line */
+.status {
+  font-size: var(--fs-caps);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin-bottom: var(--sp-2);
+}
+.green { color: var(--green); }
+.amber { color: var(--amber); }
+.grey { color: var(--ink-2); }
+
+/* CALLING: text-only opacity pulse, static under reduced motion (DESIGN §3). */
+.pulse { animation: callingPulse var(--dur-pulse) var(--ease-in-out) infinite; }
+@keyframes callingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse { animation: none; opacity: 1; }
+}
+
+.kicker {
+  font-size: 12.5px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-3);
+  margin-bottom: var(--sp-1);
+}
+
+/* Ticket · name · chip */
+.hero {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: var(--sp-4);
+  row-gap: var(--sp-1-5);
+  min-width: 0;
+}
+.name {
+  font-size: var(--fs-name-lg);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  color: var(--ink);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.chip { align-self: center; }
+
+.line {
+  margin-top: var(--sp-1-5);
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+}
+.num { font-variant-numeric: tabular-nums; }
+
+.big {
+  font-size: var(--fs-name-lg);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.bigLine {
+  margin-top: var(--sp-1-5);
+  max-width: 560px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--border-soft);
+  margin: var(--sp-3-5) 0;
+}
+
+/* Serving timer */
+.timerRow { margin-top: var(--sp-3); }
+.progress { margin-top: var(--sp-2); }
+
+.notes {
+  margin-top: var(--sp-3);
+  background: var(--ground);
+  border-radius: var(--r-control);
+  padding: var(--sp-2-5) var(--sp-3);
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+.noteField { margin-top: var(--sp-3); }
+
+.actions {
+  margin-top: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}

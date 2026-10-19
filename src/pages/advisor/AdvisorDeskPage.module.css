@@ -1,0 +1,23 @@
+/* Advisor desk layout (DESIGN §2.3). */
+.page { min-width: 0; }
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--col-myday);
+  gap: var(--gap-grid);
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-grid);
+  min-width: 0;
+}
+
+/* My day stays in view while the left column scrolls. */
+.right {
+  position: sticky;
+  top: calc(var(--topbar-h) + var(--sp-4));
+  min-width: 0;
+}
