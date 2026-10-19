@@ -46,3 +46,13 @@ Stack: Vite 8, React 18, TypeScript 7 (strict), react-router-dom 6, zustand 5, l
 | No session | ARCH: "Please sign in again." toast whenever there is no session | Toast only when `useSessionStatus()` is `invalid` (user removed or blocked); no session at all, or a normal Sign out, redirects to /login without a toast | Otherwise every Sign out and first visit would show an error. |
 | Advisor not linked | DESIGN: full-page message | toast + sign out + /login | ARCH §6.1 routing. `FullPageMessage` exists for pages that need it. |
 | Added UI | — | `SectionLabel`, `CellStack`, `FieldGrid`, `AdvisorBar`, `FullPageMessage`, `Button` variant `link` + `pending` + `icon`, `TextInput` `search`/`locked`/`width`, `Select` `variant="onGreen"`/`size`, `Chip` `pulse`, `Dialog` `onSubmit` | DESIGN describes these states and they need an owner. |
+
+## Page notes
+
+Per-page behaviour that differs from, or adds to, SPEC / DESIGN.
+
+- **Reception.** Both Check in tabs (Appointment, Walk-in) stay mounted, so switching tabs keeps search text and walk-in choices. "change advisor" on an appointment row reuses the pick-advisor dialog, so confirming it also checks the customer in. Recently finished has no count in its title.
+- **Advisor.** The calling line uses the singular for one call ("called 1 time"). Transfer **Reason** is optional.
+- **Manager.** The dashboard uses its own `KpiGrid` (`pages/manager/shared/`), which drops from 7 to 4 columns below 1200 px. Overview branch cards sit 2 per row from 1100 px, not 1280 px as in ARCHITECTURE §7. Chart tooltips show immediately, with no hover delay. An unknown branch id shows "Unknown branch" with an **Overview** button.
+- **Settings.** Validation errors show inline under the field and as a clay toast. Defaults: new branch 07:30–18:00 with `DEFAULT_RULES`; new service type 15 min; new user role Reception. Number bounds: queue rules 0–240 min, learning days 0–365, percent 0–100.
+- **TV.** The "At the desks" section is hidden when nobody is being served. NEXT shows "0 waiting" with no tiles when the queue is empty. While loading, and on "Screen not available", the header shows the logo only. The connection-lost amber dot (DESIGN §2.8) is not built.
