@@ -1,0 +1,49 @@
+/* Settings layout (DESIGN §2.6): 220 px tab list + content. */
+.layout {
+  display: grid;
+  grid-template-columns: var(--col-tabs) minmax(0, 1fr);
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.tablist {
+  position: sticky;
+  top: calc(var(--topbar-h) + var(--sp-4));
+  z-index: var(--z-sticky);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-card);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  height: var(--control-h);
+  padding: 0 var(--sp-3);
+  border: 0;
+  border-radius: var(--r-control);
+  background: transparent;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-2);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.tab:hover { background: var(--quiet-hover); color: var(--ink); }
+.tab:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.tab[aria-selected='true'] {
+  background: var(--green);
+  color: var(--card);
+  font-weight: var(--fw-semibold);
+}
+.tab[aria-selected='true']:focus-visible { outline-color: var(--green); }
+
+.panel { min-width: 0; }
+.panel:focus-visible { outline: none; }
