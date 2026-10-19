@@ -1,0 +1,112 @@
+/* Hand-made SVG charts (DESIGN §2.5 "Chart styling"). */
+
+.frame {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.svg {
+  display: block;
+  overflow: visible;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Marks */
+.fillAppt { fill: var(--chart-appt); }
+.fillWalk { fill: var(--chart-walk); }
+.marker { fill: var(--ink); }
+.hoverBand { fill: var(--ink); fill-opacity: 0.04; }
+
+/* Axes and grid */
+.grid { stroke: var(--border-soft); stroke-width: 1; shape-rendering: crispEdges; }
+.baseline { stroke: var(--border); stroke-width: 1; shape-rendering: crispEdges; }
+.yTick,
+.xTick { font-size: 11px; fill: var(--ink-3); }
+
+/* Labels */
+.valueLabel { font-size: 12px; font-weight: var(--fw-semibold); fill: var(--ink); }
+.hLabel { font-size: 12.5px; fill: var(--ink); }
+.hValue { font-size: 12px; font-weight: var(--fw-semibold); fill: var(--ink); }
+.hValueOver { fill: var(--clay); }
+.emptyText { font-size: 13.5px; fill: var(--ink-3); }
+
+/* Cap line */
+.capLine { stroke: var(--clay); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.capLabel { font-size: 11px; font-weight: var(--fw-semibold); fill: var(--clay); }
+
+/* Hit targets over each band (real buttons, so keyboard focus works natively). */
+.bands {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.band {
+  position: absolute;
+  pointer-events: auto;
+  background: transparent;
+  border-radius: 4px;
+  cursor: default;
+}
+.band:focus-visible { outline-offset: -2px; }
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  z-index: var(--z-tooltip);
+  width: max-content;
+  max-width: 260px;
+  padding: 5px 8px;
+  border-radius: var(--r-inner);
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+  white-space: normal;
+  pointer-events: none;
+}
+.tip_center { transform: translate(-50%, -100%); }
+.tip_start { transform: translate(-16px, -100%); }
+.tip_end { transform: translate(calc(-100% + 16px), -100%); }
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 12px;
+  margin-bottom: var(--sp-2);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-2);
+  line-height: 1.3;
+}
+
+.swatch {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.swatch_appt { background: var(--chart-appt); }
+.swatch_walk { background: var(--chart-walk); }
+.swatch_cap {
+  width: 14px;
+  height: 0;
+  border-radius: 0;
+  border-top: 1.5px dashed var(--clay);
+}
+.swatch_tick {
+  width: 2px;
+  height: 12px;
+  border-radius: 0;
+  background: var(--ink);
+}

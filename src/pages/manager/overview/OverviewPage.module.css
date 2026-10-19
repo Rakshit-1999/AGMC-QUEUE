@@ -1,0 +1,16 @@
+.cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap-grid);
+}
+
+@media (min-width: 1100px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.cell {
+  display: flex;
+  min-width: 0;
+}
+
+.cell > * { flex: 1; }

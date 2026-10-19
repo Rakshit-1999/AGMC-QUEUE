@@ -1,0 +1,116 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 1. Header */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.titles { min-width: 0; }
+
+.name {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.sub {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.inactive { color: var(--clay); }
+
+.link,
+.footLink {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--green);
+  white-space: nowrap;
+}
+.link:hover,
+.footLink:hover { text-decoration: underline; }
+
+/* 2. Figures, 4 × 2 on the ground */
+.figures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 10px;
+  margin: 14px 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-control);
+  background: var(--ground);
+}
+
+.figure { min-width: 0; }
+
+.figLabel {
+  font-size: var(--fs-caps);
+  font-weight: var(--fw-semibold);
+  color: var(--ink-2);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.figValue {
+  margin: 2px 0 0;
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.alert { color: var(--clay); }
+
+/* 4. Attention list */
+/* Grows so the footer sits at the bottom of equal-height cards in a row. */
+.attention {
+  flex: 1 0 auto;
+  margin-top: 14px;
+}
+
+.item,
+.allGood {
+  position: relative;
+  padding: 5px 0 5px 12px;
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.item { color: var(--clay); }
+
+.allGood {
+  font-weight: var(--fw-semibold);
+  color: var(--green);
+}
+
+.item::before,
+.allGood::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(5px + 0.675em - 3px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* 5. Footer */
+.footer {
+  display: flex;
+  gap: var(--sp-4);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-soft);
+}

@@ -1,0 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap-tiles);
+  margin-bottom: var(--sp-4);
+}
+
+@media (min-width: 1200px) {
+  .grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+}
