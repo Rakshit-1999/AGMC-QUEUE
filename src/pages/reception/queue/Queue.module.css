@@ -1,0 +1,18 @@
+/* Queue table cells (DESIGN §2.2 Queue). */
+.card { padding-bottom: 6px; overflow: hidden; }
+
+.movedUp { margin-top: 3px; font-size: var(--fs-hint); color: var(--amber); line-height: 1.35; }
+.assigned { margin-top: 3px; font-size: var(--fs-hint); color: var(--ink-2); line-height: 1.35; }
+
+.wait { font-size: var(--fs-body); font-weight: var(--fw-semibold); line-height: 1.35; white-space: nowrap; }
+.wait_normal { color: var(--ink); }
+.wait_amber { color: var(--amber); }
+.wait_clay { color: var(--clay); }
+
+.subGrey { margin-top: 1px; font-size: var(--fs-hint); color: var(--ink-3); line-height: 1.35; }
+.subClayBold { margin-top: 1px; font-size: var(--fs-hint); font-weight: var(--fw-bold); color: var(--clay); line-height: 1.35; }
+
+.advisorName { font-size: var(--fs-body); font-weight: var(--fw-semibold); line-height: 1.35; }
+.adv_grey { margin-top: 1px; font-size: var(--fs-hint); color: var(--ink-3); line-height: 1.35; }
+.adv_amber { margin-top: 1px; font-size: var(--fs-hint); color: var(--amber); line-height: 1.35; }
+.adv_clay { margin-top: 1px; font-size: var(--fs-hint); font-weight: var(--fw-semibold); color: var(--clay); line-height: 1.35; }

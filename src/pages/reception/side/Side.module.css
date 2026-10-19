@@ -1,0 +1,68 @@
+/* Advisors grid + compact lists (DESIGN §2.2). */
+.advisorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.advisor {
+  min-height: 88px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-control);
+  background: var(--card);
+  min-width: 0;
+}
+.shaded { background: var(--row-hover); }
+
+.advisorHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.advisorName {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shaded .advisorName { color: var(--ink-2); }
+
+.advisorDesk { font-size: var(--fs-hint); color: var(--ink-3); line-height: 1.35; }
+.shaded .advisorDesk { color: var(--ink-2); }
+
+.advisorCustomer {
+  margin-top: 8px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+}
+.advisorWho { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.advisorWho :global(.mono) { font-weight: var(--fw-bold); }
+.advisorTimes { white-space: nowrap; color: var(--ink-2); }
+.advisorBar { margin-top: 6px; }
+.advisorLine { margin-top: 8px; font-size: 12.5px; color: var(--ink-2); }
+
+/* Compact 36 px lines */
+.list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.line {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.line:last-child { border-bottom: 0; }
+.lineTime { font-size: var(--fs-small); font-weight: var(--fw-semibold); }
+.lineText { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lineMain { font-size: var(--fs-small); color: var(--ink); }
+.ticket { font-weight: var(--fw-bold); }
+.lineSub { font-size: var(--fs-hint); color: var(--ink-3); }

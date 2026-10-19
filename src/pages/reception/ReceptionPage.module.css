@@ -1,0 +1,29 @@
+/* Reception layout (DESIGN §2.2): 390 px sticky Check in column + wide column. */
+.columns {
+  display: grid;
+  grid-template-columns: var(--col-checkin) minmax(0, 1fr);
+  gap: var(--gap-grid);
+  align-items: start;
+}
+
+.wide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-grid);
+  min-width: 0;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap-grid);
+  align-items: start;
+}
+
+/* Reveal wrappers are grid/flex items: let them shrink so wide content (the 900 px queue table) scrolls inside its card. */
+.wide > *,
+.pair > * { min-width: 0; }
+
+@media (min-width: 1280px) {
+  .pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
